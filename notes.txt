@@ -1,0 +1,87 @@
+
+// BACK
+/////////////////
+________________________________________
+package.json =>
+"start": "nodemon server" > to start nodemon on server.js
+__________________________________________
+- mkdir config 
+- new-item .env => PORT=5000
+- appel à dotenv en require (server.js/line 2) 
+- server.js/line 5 modifier => app.listen(5000) par app.listen(process.env.PORT)
+____________________________________________
+mondogb => 
+- cliquer sur create a new cluster
+- cliquer sur connect remplir les champs
+- choisir connect using mongoDB compass
+- copier la ligne a copier et coller dans compass et changer <password>
+- créer dans config db.js 
+______________________________________________
+
+PENDANT LE CRUD faire des essais dans postman =>
+http://localhost:5000/api/user/
+
+________________________________________________
+NOTES A REVOIR
+Toujours vérifier les imports pour comprendre les fonctionnements des
+fichiers.
+
+DB 
+db.js pour la connexion à la db et .env pour mettre l'identifiant
+et mot de passe de la connexion en dehors du fichier.
+
+.ENV ne jamais oublier de le mettre dans .gitignore
+
+CRUD FONCTIONNEMENT
+• user.routes.js => pour les chemins selon les requêtes.
+• user.model.js => pour paramétrer le modèle d'utilisateur ainsi que
+les cryptages password et les regex.
+• auth.controller.js => pour la création, l'authentication et la déconnexion
+de l'utilisateur compilé avec JWT.
+• user.controller.js => pour les récupérations et les modifications des utilisateurs.
+___________________________________________________
+UTILS
+faire des erreurs dans post et vérifier les chemins
+____________________________________________________
+TRAITEMENT D'IMAGE EN BACK
+dependency MULTER est pour le traitement des images
+créer les dossiers => client/public/uploads/post/
+                      client/public/uploads/profil
+____________________________________________________
+bodyparser intégrer dans express => 
+Pour cette mise à jour :
+- pas besoin d'installer  le module body-parser;
+- ne pas créer la const bodyParser dans le fichier server.js;
+-remplacer :
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+ par :
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+______________________________________________________
+
+
+// FRONT
+/////////
+SUPPRIMER le dossier client puis npx create-react-app client
+
+POUR DÉVELOPPER EN FRONT AVEC DU BACK IL FAUT NPM START EN BACK ET FRONT
+_______________________________________________________
+- .env les variables d'environement avec react doient toujours commencer par REACT_APP
+- une fois la variable d'environement faite redémarrer le server
+
+après vérife si connexion marche regarder dans inspecteur > application > cookie 
+si le cookie jwt a été créé
+_______________________________________________________
+REDUX
+créer dans src un dossier actions et un dossier reducers
+installer react-redux redux redux-thunk redux-devtools-extension
+l'utilisation redux-devtools-extension doit être enlevé avant mise en ligne de
+
+
+
+
+
+
+
